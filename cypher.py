@@ -16,8 +16,11 @@ def compute_slug(key):
     tmp = []
     result = []
     new_alpha = ALPHABET
-    for i in key:  # loops through all the characters in key
-        tmp.append(i)      # adds the characters to empty list
+    for i in key:# loops through all the characters in key
+        if i.isalpha() and i not in tmp: # checks if i is alphabetical and if i not in tmp
+            tmp.append(i) # if both are correct adds the characters to empty list
+        else:
+            continue #else continues the for loop
     for i in tmp: #goes through temp
         if i in new_alpha: #if a character is in new_alpha
             new_alpha.remove(i) #remove said character
@@ -30,4 +33,4 @@ def compute_slug(key):
         else:
             result.append(element) #else append it
     return result
-print(compute_slug("zasdf")) # test
+print(compute_slug('z')) # test
